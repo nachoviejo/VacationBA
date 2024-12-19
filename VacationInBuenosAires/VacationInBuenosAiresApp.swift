@@ -13,5 +13,6 @@ struct VacationInBuenosAiresApp: App {
         WindowGroup {
             ContentView()
         }
+        .modelContainer(for: Place.self)
     }
 }

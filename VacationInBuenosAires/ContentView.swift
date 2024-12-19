@@ -6,19 +6,26 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        TabView {
+            Tab("Places", systemImage: "photo") {
+                PlaceList()
+            }
+            Tab("Trip History", systemImage: "chart.bar.xaxis") {
+                TripsChart()
+            }
+            Tab("Buenos Aires Rates", systemImage: "chart.pie.fill") {
+                BuenosAiresChart()
+            }
         }
-        .padding()
+//        .preferredColorScheme(.dark)
     }
 }
 
 #Preview {
     ContentView()
+        .modelContainer(Place.preview)
 }
